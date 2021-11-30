@@ -1,5 +1,5 @@
 <template>
-  <b-row style="justify-content: space-between;">
+  <b-row style="justify-content: space-evenly;">
     <slot></slot>
   </b-row>
 </template>

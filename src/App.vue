@@ -2,7 +2,6 @@
   <div id="app">
     <Header/>
     <Home>
-      
       <ProdutoLista>
         <ProdutoItem :produto='produto' :produtos='produtos' v-for="produto in produtos" :key="produto.id"/>
       </ProdutoLista>
