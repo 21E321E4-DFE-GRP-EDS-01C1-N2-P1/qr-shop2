@@ -1,31 +1,39 @@
 <template>
   <div id="app">
-    <Header/>
+    <Login />
+    <!--<Header />
     <Home>
       <ProdutoLista>
-        <ProdutoItem :produto='produto' :produtos='produtos' v-for="produto in produtos" :key="produto.id"/>
+        <ProdutoItem
+          :produto="produto"
+          :produtos="produtos"
+          v-for="produto in produtos"
+          :key="produto.id"
+        />
       </ProdutoLista>
-      
     </Home>
-    <Footer/>
+    <Footer />-->
   </div>
 </template>
 
 <script>
-import Header from "./components/templates/header/Header.vue";
-import Footer from "./components/templates/footer/Footer.vue";
-import Home from "./components/home/Home.vue";
-import ProdutoItem from "./components/Produtos/ProdutoItem.vue";
-import ProdutoLista from "./components/Produtos/ProdutoLista.vue";
+// import Header from "./components/templates/header/Header.vue";
+// import Footer from "./components/templates/footer/Footer.vue";
+// import Home from "./components/home/Home.vue";
+// import ProdutoItem from "./components/Produtos/ProdutoItem.vue";
+// import ProdutoLista from "./components/Produtos/ProdutoLista.vue";
+import Login from "./views/Login";
+import { backendUrl } from "../appConfig";
 
 export default {
   components: {
-    Header,
-    Footer,
-    Home,
-    ProdutoItem,
-    ProdutoLista
-},
+    Login,
+    // Header,
+    // Footer,
+    // Home,
+    // ProdutoItem,
+    // ProdutoLista,
+  },
   data() {
     return {
       produtos: [],
@@ -34,23 +42,21 @@ export default {
         titulo: String,
         descricao: String,
         preco: String,
-        imagem: Number
-      }
-    }
+        imagem: Number,
+      },
+    };
   },
   methods: {
-    carregar () {
-      fetch('http://21.vps-kinghost.net:1339/produto')
-      .then(res => res.json())
-      .then(data => this.produtos = data)
-    }
+    carregar() {
+      fetch(backendUrl)
+        .then((res) => res.json())
+        .then((data) => (this.produtos = data));
+    },
   },
   mounted() {
-    this.carregar()
-  }
-}
-
+    this.carregar();
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
