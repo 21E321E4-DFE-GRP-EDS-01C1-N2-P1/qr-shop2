@@ -1,12 +1,12 @@
-import axiosInstance from "./axios";
+import axios from "./axios";
 // import { getTokenLocalStorage } from "../utils/localstorage/tokenStorage";
 
 function login(email, password) {
-  return axiosInstance.post("/auth/login", { email, password });
+  return axios.post("/auth/login", { email, password });
 }
 
 function register(user) {
-  return axiosInstance.post("/auth/register", user);
+  return axios.post("/auth/register", user);
 }
 
 // function getAuthFromToken() {
