@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <Login />
-    <!--<Header />
+    <Header />
     <Home>
       <ProdutoLista>
         <ProdutoItem
@@ -12,45 +11,46 @@
         />
       </ProdutoLista>
     </Home>
-    <Footer />-->
+    <Footer />
   </div>
 </template>
 
 <script>
-// import Header from "./components/templates/header/Header.vue";
-// import Footer from "./components/templates/footer/Footer.vue";
-// import Home from "./components/home/Home.vue";
-// import ProdutoItem from "./components/Produtos/ProdutoItem.vue";
-// import ProdutoLista from "./components/Produtos/ProdutoLista.vue";
-import Login from "./views/Login";
-import { backendUrl } from "../appConfig";
+import Header from "./components/templates/header/Header.vue";
+import Footer from "./components/templates/footer/Footer.vue";
+import Home from "./components/home/Home.vue";
+import ProdutoItem from "./components/Produtos/ProdutoItem.vue";
+import ProdutoLista from "./components/Produtos/ProdutoLista.vue";
+import produtoService from "./services/produtoService";
 
 export default {
   components: {
-    Login,
-    // Header,
-    // Footer,
-    // Home,
-    // ProdutoItem,
-    // ProdutoLista,
+    Header,
+    Footer,
+    Home,
+    ProdutoItem,
+    ProdutoLista,
   },
   data() {
     return {
       produtos: [],
       produto: {
         id: Number,
-        titulo: String,
-        descricao: String,
-        preco: String,
-        imagem: Number,
+        name: String,
+        description: String,
+        price: String || Number,
+        image: String,
       },
     };
   },
   methods: {
     carregar() {
-      fetch(backendUrl)
-        .then((res) => res.json())
-        .then((data) => (this.produtos = data));
+      return produtoService
+        .getProdutos()
+        .then((produtos) => {
+          this.produtos = JSON.parse(JSON.stringify(produtos));
+        })
+        .catch((e) => alert(e.error));
     },
   },
   mounted() {
