@@ -2,24 +2,26 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
+import Produtos from "../views/Produtos.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Login",
+    path: "/login",
     component: Login,
   },
   {
-    path: "/home",
-    name: "Home",
+    path: "/",
     component: Home,
+  },
+  {
+    path: "/produtos",
+    component: Produtos,
   },
 ];
 
 const router = new VueRouter({
-  base: process.env.BASE_URL,
   mode: "history",
   routes,
 });

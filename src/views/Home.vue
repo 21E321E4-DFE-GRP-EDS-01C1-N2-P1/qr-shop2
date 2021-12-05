@@ -1,20 +1,17 @@
 <template>
-  <div>
-    <Header/>
-
-    <Footer/>
-  </div>
+  <h2 class="titulo">Home page , Faca login</h2>
 </template>
 
 <script>
-import Header from "../components/templates/header/Header.vue";
-import Footer from "../components/templates/footer/Footer.vue";
-
 // @ is an alias to /src
 
-
 export default {
-    name: "Home",
-    components: { Header, Footer}
-}
+  name: "Home",
+};
 </script>
+
+<style>
+.titulo {
+  margin-left: 400px;
+}
+</style>

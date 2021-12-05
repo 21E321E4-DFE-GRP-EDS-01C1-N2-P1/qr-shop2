@@ -1,62 +1,26 @@
 <template>
-  <div id="app">
+  <div class="app-div">
     <Header />
-    <Home>
-      <ProdutoLista>
-        <ProdutoItem
-          :produto="produto"
-          :produtos="produtos"
-          v-for="produto in produtos"
-          :key="produto.id"
-        />
-      </ProdutoLista>
-    </Home>
+    <router-view />
     <Footer />
   </div>
 </template>
-
 <script>
 import Header from "./components/templates/header/Header.vue";
 import Footer from "./components/templates/footer/Footer.vue";
-import Home from "./components/home/Home.vue";
-import ProdutoItem from "./components/Produtos/ProdutoItem.vue";
-import ProdutoLista from "./components/Produtos/ProdutoLista.vue";
-import produtoService from "./services/produtoService";
+
+// @ is an alias to /src
 
 export default {
-  components: {
-    Header,
-    Footer,
-    Home,
-    ProdutoItem,
-    ProdutoLista,
-  },
-  data() {
-    return {
-      produtos: [],
-      produto: {
-        id: Number,
-        name: String,
-        description: String,
-        price: String || Number,
-        image: String,
-      },
-    };
-  },
-  methods: {
-    carregar() {
-      return produtoService
-        .getProdutos()
-        .then((produtos) => {
-          this.produtos = JSON.parse(JSON.stringify(produtos));
-        })
-        .catch((e) => alert(e.error));
-    },
-  },
-  mounted() {
-    this.carregar();
-  },
+  name: "Home",
+  components: { Header, Footer },
 };
 </script>
-
-<style></style>
+<style>
+.app-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 800px;
+}
+</style>

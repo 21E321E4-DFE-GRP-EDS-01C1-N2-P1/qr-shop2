@@ -29,7 +29,7 @@ export default {
         .login(this.email, this.password)
         .then((resposta) => {
           setTokenLocalStorage(resposta.token);
-          alert(`Usuario logado: ${JSON.stringify(resposta)}`);
+          this.$router.push("produtos");
         })
         .catch((e) => alert(e.error));
     },
