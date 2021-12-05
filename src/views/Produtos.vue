@@ -1,44 +1,38 @@
 <template>
-  <ProdutoLista>
+  <div class="produtos-list">
     <ProdutoItem
       :produto="produto"
-      :produtos="produtos"
-      v-for="produto in produtos"
+      v-for="produto in JSON.parse(JSON.stringify($store.state.produtos))"
       :key="produto.id"
     />
-  </ProdutoLista>
+  </div>
 </template>
 
 <script>
 import ProdutoItem from "../components/Produtos/ProdutoItem.vue";
-import ProdutoLista from "../components/Produtos/ProdutoLista.vue";
 import produtoService from "../services/produtoService";
 
 export default {
   components: {
     ProdutoItem,
-    ProdutoLista,
-  },
-  data() {
-    return {
-      produtos: [],
-      produto: {
-        id: Number,
-        name: String,
-        description: String,
-        price: String || Number,
-        image: String,
-      },
-    };
   },
   methods: {
     carregar() {
       return produtoService
         .getProdutos()
         .then((produtos) => {
-          this.produtos = JSON.parse(JSON.stringify(produtos));
+          produtos = JSON.parse(JSON.stringify(produtos));
+          console.log("prods", produtos);
+          this.$store.commit(
+            "setProdutos",
+            JSON.parse(JSON.stringify(produtos))
+          );
+          console.log(
+            "===> ",
+            JSON.parse(JSON.stringify(this.$store.state.produtos))
+          );
         })
-        .catch((e) => alert(e.error));
+        .catch((e) => alert(e));
     },
   },
   mounted() {
@@ -47,4 +41,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.produtos-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+</style>
