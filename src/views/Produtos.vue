@@ -10,7 +10,7 @@
     <div class="produtos-list">
       <ProdutoItem
         :produto="produto"
-        v-for="produto in JSON.parse(JSON.stringify($store.state.produtos))"
+        v-for="produto in $store.state.produtos"
         :key="produto.id"
       />
     </div>
@@ -37,7 +37,6 @@ export default {
       return produtoService
         .getProdutos()
         .then((produtos) => {
-          produtos = JSON.parse(JSON.stringify(produtos));
           this.$store.commit("setProdutos", produtos);
         })
         .catch((e) => alert(e));
