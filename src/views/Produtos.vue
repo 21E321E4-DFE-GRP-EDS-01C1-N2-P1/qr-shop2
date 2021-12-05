@@ -7,10 +7,13 @@
       >Cadastro produto</a
     >
     <CadastroProduto v-else />
-    <div class="produtos-list">
+    <div class="text-center" v-if="loading">
+      <b-spinner variant="success" label="Spinning"></b-spinner>
+    </div>
+    <div class="produtos-list" v-else>
       <ProdutoItem
         :produto="produto"
-        v-for="produto in $store.state.produtos"
+        v-for="produto in Object.values($store.state.produtos)"
         :key="produto.id"
       />
     </div>
@@ -30,16 +33,19 @@ export default {
   data() {
     return {
       isCreatingProduct: false,
+      loading: false,
     };
   },
   methods: {
     carregar() {
+      this.loading = true;
       return produtoService
         .getProdutos()
         .then((produtos) => {
           this.$store.commit("setProdutos", produtos);
         })
-        .catch((e) => alert(e));
+        .catch((e) => alert(e))
+        .finally(() => (this.loading = false));
     },
   },
   mounted() {

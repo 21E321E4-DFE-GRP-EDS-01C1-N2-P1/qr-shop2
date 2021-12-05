@@ -1,5 +1,5 @@
 <template>
-  <b-card class="m-3 clickable" align="center">
+  <b-card class="m-3 clickable" align="center" @click="handleClickProduto">
     <template #header>
       <b-card-title class="text-center align-bottom">
         {{ produto.name }}
@@ -26,6 +26,12 @@ export default {
     return {
       isEditing: false,
     };
+  },
+  methods: {
+    handleClickProduto() {
+      this.$store.commit("setSelectedProdutoId", this.produto._id);
+      this.$router.push("/charge");
+    },
   },
 };
 </script>

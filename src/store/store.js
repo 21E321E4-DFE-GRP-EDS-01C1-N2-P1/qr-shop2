@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
     auth: null,
     produtos: [],
+    selectedProdutoId: "",
     produto: {
       id: Number,
       name: String,
@@ -25,6 +26,9 @@ const store = new Vuex.Store({
     },
     addProduto(state, novoProduto) {
       state.produtos = [...state.produtos, novoProduto];
+    },
+    setSelectedProdutoId(state, selectedProdutoId) {
+      state.selectedProdutoId = selectedProdutoId;
     },
   },
 });

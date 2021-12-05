@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import Produtos from "../views/Produtos.vue";
+import Charge from "../views/Charge.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,10 @@ const routes = [
   {
     path: "/produtos",
     component: Produtos,
+  },
+  {
+    path: "/charge",
+    component: Charge,
   },
 ];
 
