@@ -12,6 +12,6 @@ export default {
 
 <style>
 .titulo {
-  margin-left: 400px;
+  text-align: center
 }
 </style>

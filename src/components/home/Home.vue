@@ -20,9 +20,6 @@
       </b-card>
     </div>
 
-
-
-
     <slot v-else></slot>
   </b-container>
 </template>

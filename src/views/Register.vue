@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <form @submit="handleCadastro" class="login_form">
       <div class="login_box">
         <h2>Cadastro</h2>

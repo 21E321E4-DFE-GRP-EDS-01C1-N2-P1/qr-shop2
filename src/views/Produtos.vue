@@ -1,11 +1,13 @@
 <template>
   <div>
-    <a
+    <b-button
       class="clickable"
       @click="isCreatingProduct = true"
       v-if="!isCreatingProduct"
-      >Cadastro produto</a
     >
+      Cadastro de Produtos
+    </b-button>
+
     <CadastroProduto v-else />
     <div class="text-center" v-if="loading">
       <b-spinner variant="success" label="Spinning"></b-spinner>

@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    <form @submit="handleLogin" class="login_form">
-      <div class="login_box">
-        <input name="name" required v-model="email" />
-        <input name="password" required type="password" v-model="password" />
-        <button>Login</button>
-        <a @click="goToCadastro" class="clickable">Cadastre-se</a>
-      </div>
-    </form>
-  </div>
+  <b-container>
+    <b-form @submit="handleLogin">
+      <b-form-group>
+        <b-form-input name="name" required v-model="email" />
+        <b-form-input name="password" required type="password" v-model="password" />
+        <div style="display: flex;">
+          <b-button block variant='outline-primary' style="margin-right: 5px" type="submit">Login</b-button>
+          <b-button block variant='outline-secondary' style="margin-top: 0; margin-left: 5px" @click="goToCadastro" class="clickable">Cadastre-se</b-button>
+        </div>
+      </b-form-group>
+    </b-form>
+  </b-container>
 </template>
 
 <script>
@@ -43,18 +45,5 @@ export default {
 </script>
 
 <style>
-.login_form {
-  display: flex;
-  justify-content: center;
-}
 
-.login_box {
-  display: flex;
-  width: 300px;
-  flex-direction: column;
-}
-
-.clickable {
-  cursor: pointer;
-}
 </style>
