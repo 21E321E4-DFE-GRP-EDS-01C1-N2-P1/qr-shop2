@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <div class="text-center" v-if="loading">
+    <div class="text-center" v-if="loading || !charge.produto">
       <b-spinner variant="success" label="Spinning"></b-spinner>
     </div>
     <div class="card pagamentos-card" v-else>
-      <img v-bind:src="qrCode" height="400px" width="400px" />
+      <img v-bind:src="charge.qrCode" height="400px" width="400px" />
       <div class="card-detail">
-        <h1>{{ produto.name }}</h1>
-        <h2>R$ {{ produto.price }}</h2>
-        <h6>{{ produto.description }}</h6>
+        <h1>{{ charge.produto.name }}</h1>
+        <h2>R$ {{ charge.produto.price }}</h2>
+        <h6>{{ charge.produto.description }}</h6>
       </div>
     </div>
   </div>
@@ -20,8 +20,7 @@ import chargeService from "../services/chargeService";
 export default {
   data() {
     return {
-      qrCode: null,
-      produto: {},
+      charge: {},
       loading: false,
     };
   },
@@ -34,9 +33,7 @@ export default {
         if (!selectedProdutoId) {
           throw { error: "Id nao selecionado" };
         }
-        let charge = await chargeService.getCharge(selectedProdutoId);
-        this.produto = charge.produto;
-        this.qrCode = charge.qrCode;
+        this.charge = await chargeService.getCharge(selectedProdutoId);
       } catch (e) {
         alert(e.error || e);
         console.log("e", e);
