@@ -29,9 +29,10 @@ export default {
         .login(this.email, this.password)
         .then((resposta) => {
           setTokenLocalStorage(resposta.token);
+          this.$store.commit("setAuth", resposta);
           this.$router.push("produtos");
         })
-        .catch((e) => alert(e.error));
+        .catch((e) => alert(e.error || e));
     },
   },
 };

@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    auth: null,
     produtos: [],
     produto: {
       id: Number,
@@ -16,6 +17,9 @@ const store = new Vuex.Store({
   },
 
   mutations: {
+    setAuth(state, auth) {
+      state.auth = auth;
+    },
     setProdutos(state, produtos) {
       state.produtos = produtos;
     },
