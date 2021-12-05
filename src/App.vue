@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Home>
+    <Home :produto='produto' :produtos='produtos'>
       <ProdutoLista>
         <ProdutoItem :produto='produto' :produtos='produtos' v-for="produto in produtos" :key="produto.id"/>
       </ProdutoLista>
