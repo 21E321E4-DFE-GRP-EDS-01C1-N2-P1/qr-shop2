@@ -22,15 +22,7 @@ export default {
         .getProdutos()
         .then((produtos) => {
           produtos = JSON.parse(JSON.stringify(produtos));
-          console.log("prods", produtos);
-          this.$store.commit(
-            "setProdutos",
-            JSON.parse(JSON.stringify(produtos))
-          );
-          console.log(
-            "===> ",
-            JSON.parse(JSON.stringify(this.$store.state.produtos))
-          );
+          this.$store.commit("setProdutos", produtos);
         })
         .catch((e) => alert(e));
     },
