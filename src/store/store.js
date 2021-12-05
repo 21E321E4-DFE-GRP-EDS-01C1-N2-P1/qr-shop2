@@ -23,6 +23,9 @@ const store = new Vuex.Store({
     setProdutos(state, produtos) {
       state.produtos = produtos;
     },
+    addProduto(state, novoProduto) {
+      state.produtos = [...state.produtos, novoProduto];
+    },
   },
 });
 

@@ -1,5 +1,5 @@
 <template>
-  <b-card class="m-3" align="center">
+  <b-card class="m-3 clickable" align="center">
     <template #header>
       <b-card-title class="text-center align-bottom">
         {{ produto.name }}
@@ -22,6 +22,11 @@
 export default {
   name: "ProdutoItem",
   props: ["produto"],
+  data() {
+    return {
+      isEditing: false,
+    };
+  },
 };
 </script>
 
@@ -29,5 +34,9 @@ export default {
 image {
   max-width: 100%;
   max-height: 100%;
+}
+
+.clickable {
+  cursor: pointer;
 }
 </style>
