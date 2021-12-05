@@ -65,16 +65,4 @@ export default {
 };
 </script>
 
-<style>
-.login_form {
-  display: flex;
-  margin-top: 230px;
-  justify-content: center;
-}
-
-.login_box {
-  display: flex;
-  width: 300px;
-  flex-direction: column;
-}
-</style>
+<style></style>

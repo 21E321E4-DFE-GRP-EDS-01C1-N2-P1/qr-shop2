@@ -45,7 +45,6 @@ export default {
 <style>
 .login_form {
   display: flex;
-  margin-top: 230px;
   justify-content: center;
 }
 

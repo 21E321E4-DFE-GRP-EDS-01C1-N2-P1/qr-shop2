@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <form @submit="handleLogin" class="login_form">
+  <form @submit="handleLogin">
+    <div id="app" class="cadastro-produto-div">
       <div class="login_box">
         <input
           name="name"
@@ -32,8 +32,8 @@
         />
         <button>Cadastrar</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </template>
 
 <script>
@@ -74,4 +74,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.cadastro-produto-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+</style>

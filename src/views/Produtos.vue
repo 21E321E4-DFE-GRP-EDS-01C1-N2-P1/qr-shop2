@@ -3,7 +3,7 @@
     <a
       class="clickable"
       @click="isCreatingProduct = true"
-      v-if="isCreatingProduct"
+      v-if="!isCreatingProduct"
       >Cadastro produto</a
     >
     <CadastroProduto v-else />
