@@ -5,6 +5,7 @@
         <input name="name" required v-model="email" />
         <input name="password" required type="password" v-model="password" />
         <button>Login</button>
+        <a @click="goToCadastro" class="clickable">Cadastre-se</a>
       </div>
     </form>
   </div>
@@ -34,6 +35,9 @@ export default {
         })
         .catch((e) => alert(e.error || e));
     },
+    goToCadastro() {
+      this.$router.push("/register");
+    },
   },
 };
 </script>
@@ -49,5 +53,9 @@ export default {
   display: flex;
   width: 300px;
   flex-direction: column;
+}
+
+.clickable {
+  cursor: pointer;
 }
 </style>
