@@ -14,13 +14,15 @@
     <div class="text-center" v-if="loading">
       <b-spinner variant="success" label="Spinning"></b-spinner>
     </div>
-    <div class="produtos-list" v-else>
-      <ProdutoItem
-        :produto="produto"
-        v-for="produto in Object.values($store.state.produtos)"
-        :key="produto.id"
-      />
-    </div>
+    <b-container fluid v-else>
+      <b-row style="justify-content: space-evenly;" >
+        <ProdutoItem
+          :produto="produto"
+          v-for="produto in Object.values($store.state.produtos)"
+          :key="produto.id"
+        />
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -59,9 +61,5 @@ export default {
 </script>
 
 <style>
-.produtos-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
+
 </style>

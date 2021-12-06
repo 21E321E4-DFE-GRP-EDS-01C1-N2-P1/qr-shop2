@@ -5,7 +5,7 @@
     <b-card no-body class="overflow-hidden my-5" v-else>
       <b-row no-gutters>
       <b-col md="6">
-        <b-img v-bind:src="produto.image" alt="Image" fluid center/>
+        <b-img :src="produto.image" alt="Image" fluid center/>
       </b-col>
       <b-col md="6" >
         <b-card-body>
