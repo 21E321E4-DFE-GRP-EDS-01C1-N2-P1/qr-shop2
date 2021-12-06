@@ -7,14 +7,8 @@ const store = new Vuex.Store({
   state: {
     auth: null,
     produtos: {},
+    meusProdutos: {},
     selectedProdutoId: "",
-    produto: {
-      id: Number,
-      name: String,
-      description: String,
-      price: String || Number,
-      image: String,
-    },
   },
 
   mutations: {
@@ -24,8 +18,17 @@ const store = new Vuex.Store({
     setProdutos(state, produtos) {
       state.produtos = produtos;
     },
+    setMeusProdutos(state, meusProdutos) {
+      state.meusProdutos = meusProdutos;
+    },
     addProduto(state, novoProduto) {
       state.produtos = { ...state.produtos, [novoProduto._id]: novoProduto };
+    },
+
+    deleteProduto(state, produtoId) {
+      let copyProdutos = { ...state.meusProdutos };
+      delete copyProdutos[produtoId];
+      state.meusProdutos = copyProdutos;
     },
     setSelectedProdutoId(state, selectedProdutoId) {
       state.selectedProdutoId = selectedProdutoId;
