@@ -2,18 +2,24 @@
   <div class="container">
     <h1 v-if="concluida">Pagamento concluido!</h1>
 
-    <div class="card pagamentos-card" v-else>
-      <img v-bind:src="produto.image" height="400px" width="400px" />
-      <div class="card-detail">
-        <h1>{{ produto.name }}</h1>
-        <h2>R$ {{ produto.price }}</h2>
-        <h6>{{ produto.description }}</h6>
+    <b-card no-body class="overflow-hidden my-5" v-else>
+      <b-row no-gutters>
+      <b-col md="6">
+        <b-img v-bind:src="produto.image" alt="Image" fluid center/>
+      </b-col>
+      <b-col md="6" >
+        <b-card-body>
+          <b-card-title>{{ produto.name }}</b-card-title>
+          <b-card-sub-title>R$ {{ produto.price }}</b-card-sub-title>
+          <b-card-text>{{ produto.description }}</b-card-text>
+        </b-card-body>
         <div class="text-center" v-if="loading" style="margin-top: 80px">
           <b-spinner variant="success" label="Spinning"></b-spinner>
         </div>
+
         <div v-else>
           <div v-if="charge.produto">
-            <img v-bind:src="charge.qrCode" height="250px" width="250px" />
+            <b-img v-bind:src="charge.qrCode" fluid center/>
           </div>
           <div v-else>
             <b-form @submit="handleGetQrCode">
@@ -50,8 +56,9 @@
             </b-form>
           </div>
         </div>
-      </div>
-    </div>
+      </b-col>
+      </b-row>
+    </b-card>
   </div>
 </template>
 
@@ -142,12 +149,5 @@ export default {
 </script>
 
 <style>
-.pagamentos-card {
-  display: flex;
-  flex-direction: row;
-}
 
-.card-detail {
-  padding: 12px;
-}
 </style>
