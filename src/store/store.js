@@ -33,6 +33,11 @@ const store = new Vuex.Store({
     setSelectedProdutoId(state, selectedProdutoId) {
       state.selectedProdutoId = selectedProdutoId;
     },
+    setMeuProduto(state, produto) {
+      let copyProdutos = { ...state.meusProdutos };
+      copyProdutos[produto._id] = produto;
+      state.meusProdutos = copyProdutos;
+    },
   },
 });
 
