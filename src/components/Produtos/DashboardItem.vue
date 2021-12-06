@@ -16,13 +16,20 @@
 </template>
 
 <script>
+import produtoService from "../../services/produtoService";
+
 export default {
   name: "DashboardItem",
   props: ["produto"],
 
   methods: {
     handleDelete(produtoId) {
-      console.log("produtoId", produtoId);
+      produtoService
+        .deleteProduto(produtoId)
+        .then(() => {
+          this.$store.commit("deleteProduto", produtoId);
+        })
+        .catch((e) => alert(e.error || e));
     },
   },
 };

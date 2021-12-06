@@ -24,6 +24,12 @@ const store = new Vuex.Store({
     addProduto(state, novoProduto) {
       state.produtos = { ...state.produtos, [novoProduto._id]: novoProduto };
     },
+
+    deleteProduto(state, produtoId) {
+      let copyProdutos = { ...state.meusProdutos };
+      delete copyProdutos[produtoId];
+      state.meusProdutos = copyProdutos;
+    },
     setSelectedProdutoId(state, selectedProdutoId) {
       state.selectedProdutoId = selectedProdutoId;
     },
