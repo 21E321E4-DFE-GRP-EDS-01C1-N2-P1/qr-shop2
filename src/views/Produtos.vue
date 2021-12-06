@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-button
-      class="clickable m-3"
+      class="clickable mt-3"
       @click="isCreatingProduct = true"
       v-if="!isCreatingProduct"
       size='lg'
@@ -12,7 +12,7 @@
 
     <CadastroProduto v-else>
     <b-button
-      class="clickable m-3"
+      class="clickable mb-3"
       @click="isCreatingProduct = false"
       v-if="isCreatingProduct"
       size='lg'
