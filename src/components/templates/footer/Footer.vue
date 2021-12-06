@@ -3,7 +3,8 @@
     <b-row id='row'>
       <b-col class='bg-light text-dark mx-3'>
         <h3>Sobre</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut facere quod eum impedit, quo reiciendis nam fugit labore saepe dolorem modi, minus minima nesciunt iure distinctio ullam fuga quae beatae!</p>
+        <p>Aplicação em VueJS feita por Rodrigo Gomes e Thyago Teles.
+          <br/>Tecnologias: Vue Router, VueX, MongoDB, NodeJS, ExpressJS</p>
       </b-col>
       <b-col class='bg-light text-dark mx-3'>
         <h3>Acompanhe nossas novidades</h3>
