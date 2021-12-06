@@ -2,7 +2,7 @@
   <div class="text-center" v-if="loading">
     <b-spinner variant="success" label="Spinning"></b-spinner>
   </div>
-  <table class="table" v-else>
+  <table class="table table-responsive" v-else>
     <thead class="thead-dark">
       <tr>
         <th scope="col">Produto</th>
@@ -10,7 +10,6 @@
         <th scope="col">Vendido</th>
         <th scope="col">Comprador</th>
         <th scope="col">Endereco</th>
-        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>

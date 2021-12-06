@@ -15,7 +15,6 @@
         class="btn btn-success"
         @click="handleDeliver(produto._id)"
         v-else-if="!produto.delivered && produto.sold"
-        style="min-width: 155px"
       >
         Entregar Produto
       </button>
@@ -25,7 +24,6 @@
         class="btn btn-danger"
         @click="handleDelete(produto._id)"
         v-else
-        style="min-width: 155px"
       >
         Deletar
       </button>
