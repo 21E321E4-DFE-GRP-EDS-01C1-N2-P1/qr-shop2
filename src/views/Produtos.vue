@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-button
-      class="clickable mt-3"
+      class="clickable mt-3 mx-3"
       @click="isCreatingProduct = true"
       v-if="!isCreatingProduct"
       size='lg'
