@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-row>
+    <b-row id='row'>
       <b-col class='bg-light text-dark mx-3'>
         <h3>Sobre</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut facere quod eum impedit, quo reiciendis nam fugit labore saepe dolorem modi, minus minima nesciunt iure distinctio ullam fuga quae beatae!</p>
@@ -33,4 +33,11 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 770px){
+.row {
+  display: flex;
+  flex-direction: column;
+}
+}
+
 </style>
