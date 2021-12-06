@@ -16,11 +16,16 @@ function deleteProduto(produtoId) {
   return axios.delete(`/produto/${produtoId}`);
 }
 
+function deliverProduto(produtoId) {
+  return axios.put(`/produto/deliver/${produtoId}`);
+}
+
 const produtoService = {
   getProdutos,
   getMeusProdutos,
   createProduto,
   deleteProduto,
+  deliverProduto,
 };
 
 export default produtoService;

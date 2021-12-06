@@ -9,8 +9,20 @@
     <td align="right">
       <button
         type="button"
+        class="btn btn-success"
+        @click="handleDeliver(produto._id)"
+        v-if="!produto.delivered && produto.sold"
+      >
+        Confirmar Entrega
+      </button>
+      <p v-else-if="produto.delivered">Entregue</p>
+    </td>
+    <td align="right">
+      <button
+        type="button"
         class="btn btn-danger"
         @click="handleDelete(produto._id)"
+        v-if="!produto.sold"
       >
         Deletar
       </button>
@@ -31,6 +43,14 @@ export default {
         .deleteProduto(produtoId)
         .then(() => {
           this.$store.commit("deleteProduto", produtoId);
+        })
+        .catch((e) => alert(e.error || e));
+    },
+    handleDeliver(produtoId) {
+      produtoService
+        .deliverProduto(produtoId)
+        .then((produto) => {
+          this.$store.commit("setMeuProduto", produto);
         })
         .catch((e) => alert(e.error || e));
     },

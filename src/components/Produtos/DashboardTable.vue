@@ -11,6 +11,7 @@
         <th scope="col">Comprador</th>
         <th scope="col">Endereco</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
 
