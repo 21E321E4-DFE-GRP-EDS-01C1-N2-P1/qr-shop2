@@ -7,22 +7,25 @@
     <td>{{ produto.buyerUser && produto.buyerUser.endereco }}</td>
 
     <td align="right">
+      <div class="text-center" style="max-width: 155px" v-if="loading">
+        <b-spinner label="Spinning"></b-spinner>
+      </div>
       <button
         type="button"
         class="btn btn-success"
         @click="handleDeliver(produto._id)"
-        v-if="!produto.delivered && produto.sold"
+        v-else-if="!produto.delivered && produto.sold"
+        style="min-width: 155px"
       >
-        Confirmar Entrega
+        Entregar Produto
       </button>
       <p v-else-if="produto.delivered">Entregue</p>
-    </td>
-    <td align="right">
       <button
         type="button"
         class="btn btn-danger"
         @click="handleDelete(produto._id)"
-        v-if="!produto.sold"
+        v-else
+        style="min-width: 155px"
       >
         Deletar
       </button>
@@ -37,22 +40,30 @@ export default {
   name: "DashboardItem",
   props: ["produto"],
 
+  data() {
+    return { loading: false };
+  },
   methods: {
     handleDelete(produtoId) {
+      this.loading = true;
       produtoService
         .deleteProduto(produtoId)
         .then(() => {
           this.$store.commit("deleteProduto", produtoId);
         })
-        .catch((e) => alert(e.error || e));
+        .catch((e) => alert(e.error || e))
+        .finally(() => (this.loading = false));
     },
     handleDeliver(produtoId) {
+      this.loading = true;
+
       produtoService
         .deliverProduto(produtoId)
         .then((produto) => {
           this.$store.commit("setMeuProduto", produto);
         })
-        .catch((e) => alert(e.error || e));
+        .catch((e) => alert(e.error || e))
+        .finally(() => (this.loading = false));
     },
   },
 };
