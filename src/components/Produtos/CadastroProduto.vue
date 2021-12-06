@@ -1,5 +1,6 @@
 <template>
-  <b-container class="cadastro-produto-div">
+  <b-container fluid class="cadastro-produto-div">
+    <slot></slot>
     <b-form @submit="handleLogin">
       <h3 class='text-center mb-4'>Cadastre Seu Produto</h3>
       <b-form-group>

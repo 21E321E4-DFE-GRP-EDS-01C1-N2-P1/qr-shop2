@@ -7,10 +7,21 @@
       size='lg'
       variant='outline-secondary'
     >
-      Cadastro de Produtos
+      Abrir Cadastro de Produtos
     </b-button>
 
-    <CadastroProduto v-else />
+    <CadastroProduto v-else>
+    <b-button
+      class="clickable m-3"
+      @click="isCreatingProduct = false"
+      v-if="isCreatingProduct"
+      size='lg'
+      variant='outline-danger'
+    >
+      Fechar Cadastro de Produtos
+    </b-button>
+
+    </CadastroProduto>
     <div class="text-center" v-if="loading">
       <b-spinner variant="success" label="Spinning"></b-spinner>
     </div>
