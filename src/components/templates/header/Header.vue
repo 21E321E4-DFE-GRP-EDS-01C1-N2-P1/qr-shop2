@@ -7,7 +7,9 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="/">Home</b-nav-item>
           <b-nav-item to="/produtos">Produtos</b-nav-item>
-          <b-nav-item to="/dashboard" v-if="!$store.state.auth">Dashboard</b-nav-item>
+          <b-nav-item to="/dashboard" v-if="$store.state.auth"
+            >Dashboard</b-nav-item
+          >
           <b-nav-item to="login" v-if="!$store.state.auth">Login</b-nav-item>
           <b-nav-item @click="handleLogout" v-else>Logout</b-nav-item>
         </b-navbar-nav>
