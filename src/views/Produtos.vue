@@ -1,9 +1,11 @@
 <template>
   <div>
     <b-button
-      class="clickable"
+      class="clickable m-3"
       @click="isCreatingProduct = true"
       v-if="!isCreatingProduct"
+      size='lg'
+      variant='outline-secondary'
     >
       Cadastro de Produtos
     </b-button>
