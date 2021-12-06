@@ -17,7 +17,7 @@
           <b-spinner variant="success" label="Spinning"></b-spinner>
         </div>
 
-        <div v-else>
+        <b-container v-else>
           <div v-if="charge.produto">
             <b-img v-bind:src="charge.qrCode" fluid center/>
           </div>
@@ -29,33 +29,36 @@
                   placeholder="Nome"
                   required
                   v-model="unknownUser.name"
+                  class='form-input'
                 />
                 <b-form-input
                   name="cpf"
                   placeholder="CPF"
                   required
                   v-model="unknownUser.cpf"
+                  class='form-input'
                 />
                 <b-form-input
                   name="endereco"
                   required
                   placeholder="Endereco"
                   v-model="unknownUser.endereco"
+                  class='form-input'
                 />
                 <div style="display: flex">
                   <b-button
                     block
                     variant="outline-secondary"
-                    style="margin-top: 0; margin-left: 5px"
                     class="clickable"
                     type="submit"
-                    >Pegar QRCode</b-button
                   >
+                    Pegar QRCode
+                  </b-button>
                 </div>
               </b-form-group>
             </b-form>
           </div>
-        </div>
+        </b-container>
       </b-col>
       </b-row>
     </b-card>
