@@ -2,7 +2,10 @@
   <tr>
     <td>{{ produto.name }}</td>
     <td>{{ produto.price }}</td>
-    <td>{{ produto.sold }}</td>
+    <td>{{ produto.sold ? "SIM" : "NÃO" }}</td>
+    <td>{{ produto.buyerUser && produto.buyerUser.name }}</td>
+    <td>{{ produto.buyerUser && produto.buyerUser.endereco }}</td>
+
     <td align="right">
       <button
         type="button"
