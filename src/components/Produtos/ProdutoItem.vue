@@ -1,5 +1,9 @@
 <template>
-  <b-card class="m-3 clickable" align="center" @click="handleClickProduto">
+  <b-card 
+    class="m-3 clickable" 
+    align="center" 
+    @click="handleClickProduto"
+  >
     <template #header>
       <b-card-title class="text-center align-bottom">
         {{ produto.name }}
@@ -9,7 +13,7 @@
       :src="produto.image"
       alt="Imagem"
       class="text-center"
-      style="max-width: 100%; max-height: 100%"
+      style="max-width: 50%; max-height: 100%"
     />
 
     <template #footer>
