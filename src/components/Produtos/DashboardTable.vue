@@ -8,7 +8,7 @@
         <th scope="col">Produto</th>
         <th scope="col">Preco</th>
         <th scope="col">Sold</th>
-        <th scope="col">Delete</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>

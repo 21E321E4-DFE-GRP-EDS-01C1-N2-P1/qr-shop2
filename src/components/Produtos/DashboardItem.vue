@@ -3,7 +3,7 @@
     <td>{{ produto.name }}</td>
     <td>{{ produto.price }}</td>
     <td>{{ produto.sold }}</td>
-    <td>
+    <td align="right">
       <button
         type="button"
         class="btn btn-danger"
